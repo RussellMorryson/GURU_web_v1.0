@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<h1>Регистрация нового пользователя</h1>
+ 
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p ><button type="submit">Регистрация</button></p>
+</form>
+
+<a href = "{% url 'login_user' %}" style="color: rgb(4, 209, 4);"> Главная </a>
+
+{% endblock %}

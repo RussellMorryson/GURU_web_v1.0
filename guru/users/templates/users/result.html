@@ -1,0 +1,11 @@
+{% extends 'program.html' %}
+ 
+{% block content %}
+<h2 style="color: yellow;">Результат анализа и обработки файла:</h2>
+ 
+{{ result }}
+
+<br>
+<a href = "{% url 'program' %}" style="color: rgb(4, 209, 4);"> Главная </a>
+ 
+{% endblock %}

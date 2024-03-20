@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/program.css'%}" type="text/css">
+        <title>
+            GURU
+        </title>
+    </head>
+    <body>
+        <header>            
+            <div class = "logo" style="text-align: center">
+                <h1>GURU</h1>
+                <h3>Web version 1.0</h3>
+            </div>
+            <div class = "user" style="text-align: right">                
+                <p>Логин: {{ username }} </p>
+                <p>Почта: {{ email }} </p>
+            </div>
+            <div class = "exit">                
+                <button><a href="{% url 'logout_user' %}" class="nav-link" style="color:white">Выйти</a></button>
+            </div>
+        </header>
+        <div class="content">
+            {% block content %}
+            <h1 style = "color: yellow">Загрузите бухгалтерскую отчетность</h1>
+            <h4 style = "color: yellow"> Файл (в формате excel) должен содержать:<br>
+                бухгалтерский баланс и отчет о прибылях и убытках<br><br></h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p ><button type="submit">Отправить</button></p>
+            </form>
+            {% endblock %}
+        </div>
+    </body>
+
+    <footer>
+        <h3>Используемые технологии:</h3>
+        <h4>Python    Django    HTML    CSS    SQL    Excel</h4>
+        <h5>
+            Github: 
+            <a href="https://github.com/RussellMorryson" style="color: white"> Russell Morryson </a>
+        </h5>
+    </footer>
+</html>

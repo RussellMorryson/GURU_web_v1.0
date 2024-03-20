@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/base.css'%}" type="text/css">       
+        <title>
+            {% block title %}
+                Базовый шаблон
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <header>             
+            <h1 style="size: 24px">GURU</h1>                   
+            <h3>Web version 1.0</h3>
+        </header>
+        <div class="content">
+            {% block content %} 
+                Здесь должна быть информация
+            {% endblock %}
+        </div>
+    </body>
+
+    <footer>
+        <div class="f1">        
+            <h3>Я такой человек, что если задать мне вопрос, на который я не знаю ответа, <br>
+                я отвечу, что не знаю. Но, поверьте, я знаю, как его найти, этот ответ, <br>
+                и я его найду. Разве это не главное?</h3>
+            <h4>к/ф "В погоне за счастьем"&copy;</h4>
+        </div>
+        <div class="f2">
+            <h5>
+                Github: 
+                <a href="https://github.com/RussellMorryson" 
+                style="color: white">
+                    Russell Morryson
+                </a>
+            </h5>   
+        </div>
+    </footer>
+</html>
