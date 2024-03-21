@@ -21,12 +21,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-p$94$+t5_o^p24a0&6i%&a1wy!)5x@z(_15((db%-qdm)1wq5*"
+#SECRET_KEY = "django-insecure-p$94$+t5_o^p24a0&6i%&a1wy!)5x@z(_15((db%-qdm)1wq5*"
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+####################################
+# new constants
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+####################################
+
+
+ALLOWED_HOSTS = [
+    "guruweb.pythonanywhere.com"
+]
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
@@ -80,8 +92,17 @@ WSGI_APPLICATION = "guru.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        #"ENGINE": "django.db.backends.sqlite3",
+        #"NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "guruweb$default",
+        "USER": "guruweb",
+        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
+        "HOST": "guruweb.mysql.pythonanywhere-services.com",
+        "OPTION": {
+            "init_command": "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+        },        
     }
 }
 
@@ -122,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / 'static/'
 
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),

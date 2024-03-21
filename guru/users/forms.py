@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.models import User
-#from django.contrib.auth.hashers import make_password
  
 class LoginUserForm(forms.Form):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
