@@ -2,5 +2,5 @@ GURU web - вэб версия десктопного приложения.
 Основана на Python - Django
 В папке "script" скрипт исполнения может быть заменен
   
-Доступна по ссылке: https://guruweb.pythonanywhere.com/
+Доступно по ссылке: https://guruweb.pythonanywhere.com/
 Один из первых проектов в моем опыте
